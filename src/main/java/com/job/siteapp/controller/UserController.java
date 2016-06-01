@@ -4,6 +4,7 @@ import javax.annotation.Resource;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.job.siteapp.common.globality.BaseController;
@@ -24,7 +25,7 @@ public class UserController extends BaseController {
 	@Resource
 	private UserService userService;
 	
-	@RequestMapping("regist")
+	@RequestMapping(value = "regist.json", method = RequestMethod.POST)
 	@ResponseBody
 	public Result regist(User user) {
 		return userService.registUser(user);
